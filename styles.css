@@ -1,0 +1,22 @@
+/* Global vars */
+:root {
+    --main-font-color: #333;
+    --main-background-color: #f5f0e9;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+body {
+    font-family: 'Roboto Slab', serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--main-font-color);
+    background: var(--main-background-color);
+    height: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.7rem;
+    letter-spacing: 0.02rem;
+}
