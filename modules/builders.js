@@ -47,7 +47,7 @@ export const createHeader = () => {
 };
 
 export const createDivider = () => {
-  const dividerFragment = new DocumentFragment();
+  const fragment = new DocumentFragment();
   const divider = createEl("div", { class: "divider" });
 
   const dividerWrapper = createEl("div", { class: "content-wrapper" });
@@ -56,6 +56,26 @@ export const createDivider = () => {
   divider.append(dividerWrapper);
   dividerWrapper.append(dividerContainer);
 
-  dividerFragment.append(divider);
-  APP.append(dividerFragment);
+  fragment.append(divider);
+  APP.append(fragment);
+};
+
+export const createHero = () => {
+  const fragment = new DocumentFragment();
+  const hero = createEl("div", { class: "hero" });
+
+  const heroWrapper = createEl("div", { class: "content-wrapper" });
+  const heroContainer = createEl("div", { class: "relative container" });
+
+  const heroCaption = createEl("div", { class: "absolute hero-caption" });
+  heroCaption.innerHTML = `<div class="hero-caption_title">Branded Choice</div>
+     <div class="hero-caption__dscr">Best Sell Books Collection</div>
+     <div class="hero-caption__button">Shop Now</div>`;
+
+  hero.append(heroWrapper);
+  heroWrapper.append(heroContainer);
+  heroContainer.append(heroCaption);
+
+  fragment.append(hero);
+  APP.append(fragment);
 };

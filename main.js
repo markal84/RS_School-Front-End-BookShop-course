@@ -2,7 +2,7 @@
 ///// Imports
 */
 
-import { createHeader, createDivider } from "./modules/builders.js";
+import { createHeader, createDivider, createHero } from "./modules/builders.js";
 
 /*
 ///// Main Page
@@ -18,3 +18,7 @@ createDivider();
 /*
 //// Content
 */
+/*
+///Hero
+*/
+createHero();

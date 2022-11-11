@@ -85,3 +85,14 @@ cursor: pointer;
  background: var(--divider-color);
  height: 55px;
 }
+
+/* === Hero === */
+
+.hero  div.container {
+    background-image: url("./assets/img/hero.jpg");
+    background-color: var(--main-background-color);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 488px;
+}
