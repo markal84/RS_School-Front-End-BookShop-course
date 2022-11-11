@@ -12,7 +12,7 @@ export const createLi = (arr) => {
   let fragment = new DocumentFragment();
   arr.forEach((el) => {
     let li = document.createElement("li");
-    li.innerHTML = el;
+    li.innerHTML = `<a href="#">${el}</a>`;
     fragment.appendChild(li);
   });
   return fragment;

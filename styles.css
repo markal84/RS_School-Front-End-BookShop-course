@@ -2,6 +2,7 @@
 :root {
     --main-font-color: #333;
     --main-background-color: #f5f0e9;
+    --divider-color: #d4223a;
 }
 
 
@@ -40,9 +41,22 @@ ul {
     max-width: 95%;
     margin: 0 auto;
     display: flex;
+    justify-content: center;
 }
 
 /* ===== Helper classes ===== */
+
+.flex {
+    display: flex;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
 
 /* ===== Main page classes ===== */
 
@@ -52,6 +66,22 @@ nav {
     display: flex;
 }
 
+.nav-logo {
+    cursor: pointer;
+}
+
 .nav-menu {
     display: inline-flex;
+}
+
+.cart-icon {
+font-size: 1.8rem;
+cursor: pointer;
+}
+
+/* === Divider === */
+
+.divider {
+ background: var(--divider-color);
+ height: 55px;
 }

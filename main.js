@@ -2,15 +2,19 @@
 ///// Imports
 */
 
-import { createHeader } from "./modules/builders.js";
+import { createHeader, createDivider } from "./modules/builders.js";
 
 /*
 ///// Main Page
 */
 /*
-//// Header
+//// Header & nav
 */
 createHeader();
 /*
-/// Nav
+//// Divider
+*/
+createDivider();
+/*
+//// Content
 */

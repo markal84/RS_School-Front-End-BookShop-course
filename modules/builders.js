@@ -4,7 +4,7 @@ const APP = document.querySelector("#app");
 const WPAPPER = createEl("div", { class: "content-wrapper" });
 const CONTAINER = createEl("div", { class: "container" });
 
-//Header
+////////// Header
 export const createHeader = () => {
   const fragment = new DocumentFragment();
   const header = createEl("header", { class: "header" });
@@ -12,19 +12,50 @@ export const createHeader = () => {
   header.append(WPAPPER);
   WPAPPER.append(CONTAINER);
 
+  ///nav
   const nav = createEl("nav");
   CONTAINER.append(nav);
 
   const navLogo = createEl("div", { class: "nav-logo" });
   const navMenu = createEl("ul", { class: "nav-menu" });
-  const navCart = createEl("div", { class: "nav-cart" });
+  const navCart = createEl("div", { class: " flex nav-cart" });
 
+  //nav logo
+  const logoImage = createEl("img", {
+    src: "./assets/img/logo.png",
+    alt: "logo image",
+  });
+
+  navLogo.append(logoImage);
+
+  //nav menu
   const menu = ["Home", "About Us", "Contact", "Delivery"];
   const menuLinks = createLi(menu);
   navMenu.append(menuLinks);
 
+  //nav cart
+  const navCartIcon = createEl("i", {
+    class: " cart-icon fa-solid fa-cart-shopping",
+  });
+  navCart.append(navCartIcon);
+
   nav.append(navLogo, navMenu, navCart);
 
   fragment.append(header);
+  //console.log(fragment);
   APP.append(fragment);
+};
+
+export const createDivider = () => {
+  const dividerFragment = new DocumentFragment();
+  const divider = createEl("div", { class: "divider" });
+
+  const dividerWrapper = createEl("div", { class: "content-wrapper" });
+  const dividerContainer = createEl("div", { class: "container" });
+
+  divider.append(dividerWrapper);
+  dividerWrapper.append(dividerContainer);
+
+  dividerFragment.append(divider);
+  APP.append(dividerFragment);
 };
