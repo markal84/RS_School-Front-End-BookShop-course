@@ -44,6 +44,10 @@ ul {
     justify-content: center;
 }
 
+.button {
+    cursor: pointer;
+}
+
 /* ===== Helper classes ===== */
 
 .flex {

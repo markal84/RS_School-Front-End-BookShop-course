@@ -1,3 +1,5 @@
+import { openPopup } from "./helpers.js";
+
 //create tags
 
 export const createEl = (type, attributes) => {
@@ -24,7 +26,7 @@ export const createLi = (arr) => {
 
 // fetch books from file
 
-export const fetchData = () => {
+export const createBookList = () => {
   fetch("../data/books.json")
     .then((response) => {
       return response.json();
@@ -39,12 +41,25 @@ export const fetchData = () => {
 
   const appendData = (data) => {
     data.forEach((el) => {
+      //const fragment = new DocumentFragment()
       const container = document.querySelector(".books-catalog");
       const book = createEl("li", {
         class: `book book${data.indexOf(el) + 1}`,
       });
-      book.innerHTML = `Author: ${el.author}`;
+      book.innerHTML = `
+      <p class="book-author">${el.author}</p>
+      <p class="book-image"><img src=${el.imageLink} alt="book"></img></p>
+      <p class="book-title">${el.title}</p>
+      <p class="book-price">${el.price} PLN<p>
+      <div class="button button__show-more">Show more</div>
+      <p class="book-descr">Shown after button click - ${el.description}</p>
+      `;
+
       container.append(book);
     });
+
+    // add openPopup event to show more button
+    let button = document.querySelector(".button__show-more");
+    button.addEventListener("click", openPopup);
   };
 };

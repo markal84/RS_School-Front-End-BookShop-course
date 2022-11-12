@@ -1,4 +1,4 @@
-import { createEl, createLi, fetchData } from "./creators.js";
+import { createEl, createLi, createBookList } from "./creators.js";
 
 const APP = document.querySelector("#app");
 const WPAPPER = createEl("div", { class: "content-wrapper" });
@@ -92,7 +92,7 @@ export const createBooksCatalog = () => {
   booksWrapper.append(booksContainer);
   booksContainer.append(booksListCatalog);
 
-  fetchData();
+  createBookList();
 
   fragment.append(booksList);
   APP.append(fragment);
