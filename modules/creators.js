@@ -1,4 +1,4 @@
-import { openPopup } from "./helpers.js";
+//import { openPopup } from "./helpers.js";
 
 //create tags
 
@@ -32,7 +32,7 @@ export const createBookList = () => {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       appendData(data);
     })
     .catch((err) => {
@@ -46,23 +46,27 @@ export const createBookList = () => {
       const book = createEl("li", {
         class: `book book${data.indexOf(el) + 1}`,
       });
-      book.innerHTML = `
-      <p class="book-author">${el.author}</p>
+      book.innerHTML = `<p class="book-author">${el.author}</p>
       <p class="book-image"><img src=${el.imageLink} alt="book"></img></p>
       <p class="book-title">${el.title}</p>
       <p class="book-price">${el.price} PLN<p>
       <div class="button button__show-more relative">Show more
-        <span id="textPopup" class="book-descr">${el.description}</span>
-      </div>
-      `;
+        <span id="textPopup${data.indexOf(el) + 1}" class="book-descr">${
+        el.description
+      }</span>
+      </div>`;
 
       container.append(book);
     });
 
     // add openPopup event to show more button
-    let showMoreButton = document.querySelectorAll(".button__show-more");
+    const showMoreButton = document.querySelectorAll(".button__show-more");
     showMoreButton.forEach((el) => {
-      el.addEventListener("click", openPopup);
+      el.addEventListener("click", () => {
+        //console.log(el.tagName);
+        const showDescr = el.querySelector(".book-descr");
+        showDescr.classList.toggle("show");
+      });
     });
   };
 };
