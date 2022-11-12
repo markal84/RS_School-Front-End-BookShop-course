@@ -1,4 +1,4 @@
-import { createEl, createLi } from "./creators.js";
+import { createEl, createLi, fetchData } from "./creators.js";
 
 const APP = document.querySelector("#app");
 const WPAPPER = createEl("div", { class: "content-wrapper" });
@@ -48,7 +48,7 @@ export const createHeader = () => {
 
 export const createDivider = () => {
   const fragment = new DocumentFragment();
-  const divider = createEl("div", { class: "divider" });
+  const divider = createEl("section", { class: "divider" });
 
   const dividerWrapper = createEl("div", { class: "content-wrapper" });
   const dividerContainer = createEl("div", { class: "container" });
@@ -62,7 +62,7 @@ export const createDivider = () => {
 
 export const createHero = () => {
   const fragment = new DocumentFragment();
-  const hero = createEl("div", { class: "hero" });
+  const hero = createEl("section", { class: "hero" });
 
   const heroWrapper = createEl("div", { class: "content-wrapper" });
   const heroContainer = createEl("div", { class: "relative container" });
@@ -77,5 +77,23 @@ export const createHero = () => {
   heroContainer.append(heroCaption);
 
   fragment.append(hero);
+  APP.append(fragment);
+};
+
+export const createBooksCatalog = () => {
+  const fragment = new DocumentFragment();
+  const booksList = createEl("section", { class: "books" });
+
+  const booksWrapper = createEl("div", { class: "content-wrapper" });
+  const booksContainer = createEl("div", { class: "relative container" });
+  const booksListCatalog = createEl("ul", { class: "books-catalog" });
+
+  booksList.append(booksWrapper);
+  booksWrapper.append(booksContainer);
+  booksContainer.append(booksListCatalog);
+
+  fetchData();
+
+  fragment.append(booksList);
   APP.append(fragment);
 };

@@ -1,3 +1,5 @@
+//create tags
+
 export const createEl = (type, attributes) => {
   const el = document.createElement(type);
 
@@ -8,6 +10,8 @@ export const createEl = (type, attributes) => {
   return el;
 };
 
+//create simple list
+
 export const createLi = (arr) => {
   let fragment = new DocumentFragment();
   arr.forEach((el) => {
@@ -16,4 +20,31 @@ export const createLi = (arr) => {
     fragment.appendChild(li);
   });
   return fragment;
+};
+
+// fetch books from file
+
+export const fetchData = () => {
+  fetch("../data/books.json")
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      appendData(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  const appendData = (data) => {
+    data.forEach((el) => {
+      const container = document.querySelector(".books-catalog");
+      const book = createEl("li", {
+        class: `book book${data.indexOf(el) + 1}`,
+      });
+      book.innerHTML = `Author: ${el.author}`;
+      container.append(book);
+    });
+  };
 };
