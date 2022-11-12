@@ -51,15 +51,18 @@ export const createBookList = () => {
       <p class="book-image"><img src=${el.imageLink} alt="book"></img></p>
       <p class="book-title">${el.title}</p>
       <p class="book-price">${el.price} PLN<p>
-      <div class="button button__show-more">Show more</div>
-      <p class="book-descr">Shown after button click - ${el.description}</p>
+      <div class="button button__show-more relative">Show more
+        <span id="textPopup" class="book-descr">${el.description}</span>
+      </div>
       `;
 
       container.append(book);
     });
 
     // add openPopup event to show more button
-    let button = document.querySelector(".button__show-more");
-    button.addEventListener("click", openPopup);
+    let showMoreButton = document.querySelectorAll(".button__show-more");
+    showMoreButton.forEach((el) => {
+      el.addEventListener("click", openPopup);
+    });
   };
 };

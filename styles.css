@@ -100,3 +100,30 @@ cursor: pointer;
     background-size: cover;
     height: 488px;
 }
+
+/* === Books list === */
+
+.button__show-more .book-descr {
+    visibility: hidden;
+    position: absolute;
+    border-radius: 2px solid grey;
+    text-align: center;
+    z-index: 1;
+}
+
+.button__show-more .show {
+    visibility: visible;
+    animation: fadeIn 1s;
+    -webkit-animation: fadeIn 1s;
+}
+
+/*Add animation to popup */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
