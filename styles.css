@@ -110,12 +110,17 @@ cursor: pointer;
     flex-wrap: wrap;
 }
 
+.books-catalog li:nth-child(2), .books-catalog li:nth-child(5), .books-catalog li:nth-child(8) {
+    border-left: none;
+    border-right: none;
+}
+
 .book {
     display: flex;
     flex: 0 0 30%;
     flex-direction: column;
     padding: 1%;
-    margin-top: 1%;
+    margin-top: 0.8rem;
     text-align: center;
     border: 1px solid var(--book-border-color);
 }
@@ -156,6 +161,7 @@ cursor: pointer;
     order: 3;
     text-transform: capitalize;
     font-weight: 500;
+    height: 40px;
     overflow: hidden;
 }
 
@@ -164,6 +170,10 @@ cursor: pointer;
     color: var(--divider-color);
     font-size: 1.14rem;
     font-weight: 500;
+}
+
+.book-price span {
+    font-size: 0.95rem;
 }
 
 .button__show-more {

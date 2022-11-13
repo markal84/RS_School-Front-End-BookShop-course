@@ -53,7 +53,7 @@ export const createBookList = () => {
       <i class="button button__add-to-cart absolute fa-solid fa-cart-plus"></i>
       </div>
       <p class="book-title">${el.title}</p>
-      <p class="book-price">${el.price} PLN<p>
+      <p class="book-price">${el.price}.<span>00</span> PLN<p>
       <div class="button button__show-more relative"><span>Show more</span>
         <p id="textPopup${data.indexOf(el) + 1}" class="book-descr">${
         el.description
