@@ -15,13 +15,10 @@ export const cart = () => {
 
   addToCart.forEach((el) => {
     el.addEventListener("click", () => {
-      //console.log("click");
       numberItems++;
       if (numberItems > 0) {
-        //console.log("add visible");
         displayNumbers.classList.add("visible");
       } else {
-        //console.log("remove visible");
         displayNumbers.classList.remove("visible");
       }
       console.log("number of items in cart is " + numberItems);
