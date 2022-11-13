@@ -97,3 +97,17 @@ export const createBooksCatalog = () => {
   fragment.append(booksList);
   APP.append(fragment);
 };
+
+export const createFooter = () => {
+  const fragment = new DocumentFragment();
+  const footer = createEl("footer", { class: "footer" });
+
+  const footerWrapper = createEl("div", { class: "content-wrapper" });
+  const footerContainer = createEl("div", { class: "relative container" });
+
+  footer.append(footerWrapper);
+  footerWrapper.append(footerContainer);
+
+  fragment.append(footer);
+  APP.append(fragment);
+};

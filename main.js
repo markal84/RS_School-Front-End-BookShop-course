@@ -7,7 +7,10 @@ import {
   createDivider,
   createHero,
   createBooksCatalog,
+  createFooter,
 } from "./modules/builders.js";
+
+import { addClassOnScroll } from "./modules/helpers.js";
 
 /*
 ///// Main Page
@@ -31,3 +34,9 @@ createHero();
 /// Book Catalog
 */
 createBooksCatalog();
+/*
+/// Footer
+*/
+createFooter();
+
+addClassOnScroll();

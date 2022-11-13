@@ -70,7 +70,7 @@ export const createBookList = () => {
         //console.log(el.tagName);
         const showDescr = el.querySelector(".book-descr");
         showDescr.classList.toggle("show");
-        // work later to change text in button where class is present
+        // work later on change text in button where class is present
 
         /*if (showDescr.classList.contains("show")) {
           el.querySelector(".button__show-more").innerText = "show less";
