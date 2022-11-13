@@ -12,11 +12,13 @@ import {
 
 import { addClassOnScroll } from "./modules/helpers.js";
 
+import { cart } from "./modules/cart.js";
+
 /*
 ///// Main Page
 */
 /*
-//// Header & nav
+//// Header & nav & cart
 */
 createHeader();
 /*
@@ -34,9 +36,12 @@ createHero();
 /// Book Catalog
 */
 createBooksCatalog();
+
 /*
 /// Footer
 */
 createFooter();
 
 addClassOnScroll();
+
+//window.addEventListener("load", cart());

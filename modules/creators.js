@@ -1,4 +1,4 @@
-//import { openPopup } from "./helpers.js";
+import { cart } from "./cart.js";
 
 //create tags
 
@@ -42,7 +42,7 @@ export const createBookList = () => {
   const appendData = (data) => {
     data.forEach((el) => {
       //const fragment = new DocumentFragment()
-      const container = document.querySelector(".books-catalog");
+      const booksContainer = document.querySelector(".books-catalog");
       const book = createEl("li", {
         class: `book book${data.indexOf(el) + 1}`,
       });
@@ -60,8 +60,13 @@ export const createBookList = () => {
       }</p>
       </div>`;
 
-      container.append(book);
+      booksContainer.append(book);
     });
+
+    /*
+    For now put cart function here because here i have acces to elements created from json 
+    */
+    cart();
 
     // add openPopup event to 'show more' button
     const showMoreButton = document.querySelectorAll(".button__show-more");

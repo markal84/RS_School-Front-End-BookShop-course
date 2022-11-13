@@ -1,4 +1,5 @@
 import { createEl, createLi, createBookList } from "./creators.js";
+import { cart } from "./cart.js";
 
 const APP = document.querySelector("#app");
 const WPAPPER = createEl("div", { class: "content-wrapper" });
@@ -18,7 +19,7 @@ export const createHeader = () => {
 
   const navLogo = createEl("div", { class: "nav-logo" });
   const navMenu = createEl("ul", { class: "nav-menu" });
-  const navCart = createEl("div", { class: " flex nav-cart" });
+  const navCart = createEl("div", { id: "cart", class: " flex nav-cart" });
 
   //nav logo
   const logoImage = createEl("img", {
@@ -35,10 +36,19 @@ export const createHeader = () => {
 
   //nav cart
   const navCartIcon = createEl("i", {
-    class: " cart-icon fa-solid fa-cart-shopping",
+    class: "cart-icon relative fa-solid fa-cart-shopping",
+    id: "cart-icon-el",
   });
   navCart.append(navCartIcon);
 
+  const navCartQuantity = createEl("span", {
+    class: "cart-quantity absolute",
+    id: "cart-quantity-total",
+  });
+  //navCartQuantity.textContent = "0";
+  navCartIcon.append(navCartQuantity);
+
+  // append all nav elements to nav menu
   nav.append(navLogo, navMenu, navCart);
 
   fragment.append(header);
