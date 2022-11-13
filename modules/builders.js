@@ -86,7 +86,7 @@ export const createBooksCatalog = () => {
 
   const booksWrapper = createEl("div", { class: "content-wrapper" });
   const booksContainer = createEl("div", { class: "relative container" });
-  const booksListCatalog = createEl("ul", { class: "books-catalog" });
+  const booksListCatalog = createEl("ul", { class: "books-catalog flex" });
 
   booksList.append(booksWrapper);
   booksWrapper.append(booksContainer);

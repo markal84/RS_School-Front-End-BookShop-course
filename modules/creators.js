@@ -24,7 +24,7 @@ export const createLi = (arr) => {
   return fragment;
 };
 
-// fetch books from file
+// fetch books from file and display then on the page
 
 export const createBookList = () => {
   fetch("../data/books.json")
@@ -47,25 +47,34 @@ export const createBookList = () => {
         class: `book book${data.indexOf(el) + 1}`,
       });
       book.innerHTML = `<p class="book-author">${el.author}</p>
-      <p class="book-image"><img src=${el.imageLink} alt="book"></img></p>
+      <div class="book-image relative"><img src=${
+        el.imageLink
+      } alt="book"></img>
+      <i class="button button__add-to-cart absolute fa-solid fa-cart-plus"></i>
+      </div>
       <p class="book-title">${el.title}</p>
       <p class="book-price">${el.price} PLN<p>
-      <div class="button button__show-more relative">Show more
-        <span id="textPopup${data.indexOf(el) + 1}" class="book-descr">${
+      <div class="button button__show-more relative"><span>Show more</span>
+        <p id="textPopup${data.indexOf(el) + 1}" class="book-descr">${
         el.description
-      }</span>
+      }</p>
       </div>`;
 
       container.append(book);
     });
 
-    // add openPopup event to show more button
+    // add openPopup event to 'show more' button
     const showMoreButton = document.querySelectorAll(".button__show-more");
     showMoreButton.forEach((el) => {
       el.addEventListener("click", () => {
         //console.log(el.tagName);
         const showDescr = el.querySelector(".book-descr");
         showDescr.classList.toggle("show");
+        // work later to change text in button where class is present
+
+        /*if (showDescr.classList.contains("show")) {
+          el.querySelector(".button__show-more").innerText = "show less";
+        }*/
       });
     });
   };
