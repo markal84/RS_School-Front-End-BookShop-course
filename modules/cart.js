@@ -11,7 +11,7 @@ export const cart = () => {
     class: "cart-modal-overlay",
     style: "visibility: hidden; opacity: 0",
   });
-  //here
+
   document.body.append(cartModalOverlay);
 
   //cart modal
@@ -21,13 +21,25 @@ export const cart = () => {
   });
   cartModalOverlay.append(cartModal);
 
+  //cart top block
+  const cartBlockTop = createEl("div", { class: "cart-block" });
+
+  cartBlockTop.innerHTML = `<div class="cart-block-title">Shopping Cart <span id="cart-block-title-items">(0)</span></div>
+                            <div class="cart-block-close"></div>`;
+
+  cartModal.append(cartBlockTop);
+
   //cart close button
   const cartCloseButton = createEl("i", {
     class: "fa-solid fa-xmark",
     id: "cart-close-btn",
   });
 
-  cartModal.append(cartCloseButton);
+  //append cart close button to cart-block-close
+
+  const cartBlockTopClose = document.querySelector(".cart-block-close");
+
+  cartBlockTopClose.append(cartCloseButton);
 
   cartIcon.addEventListener("click", () => {
     cartModal.style.transform = "translateX(0)";
