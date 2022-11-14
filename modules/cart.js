@@ -9,15 +9,61 @@ export const cart = () => {
   // cart modal overlay
   const cartModalOverlay = createEl("div", {
     class: "cart-modal-overlay",
-    style: "opacity:0",
+    style: "visibility: hidden; opacity: 0",
   });
-  cartIcon.append(cartModalOverlay);
+  //cartIcon.append(cartModalOverlay);
+
+  //cart modal
+  const cartModal = createEl("div", {
+    class: "cart-modal",
+    style: "transform:translateX(102%)",
+  });
+  document.body.append(cartModal);
+
+  //cart close button
+  const cartCloseButton = createEl("i", {
+    class: "fa-solid fa-xmark",
+    id: "cart-close-btn",
+  });
+
+  cartModal.append(cartCloseButton);
+
+  cartIcon.addEventListener("click", () => {
+    cartModal.style.transform = "translateX(0)";
+    console.log("open by cart button");
+  });
 
   // show overlay on cart icon click
-  cartIcon.addEventListener("click", () => {
-    cartModalOverlay.style.opacity === "0"
-      ? (cartModalOverlay.style.opacity = "1")
-      : (cartModalOverlay.style.opacity = "0");
+  /*cartIcon.addEventListener("click", () => {
+    if (cartModalOverlay.style.visibility === "hidden") {
+      cartModalOverlay.style.visibility = "visible";
+      cartModalOverlay.style.opacity = "1";
+      console.log("open cart");
+    } else {
+      cartModalOverlay.style.visibility = "hidden";
+      cartModalOverlay.style.opacity = "0";
+      console.log("close cart");
+    }
+    /*cartModalOverlay.style.visibility === "hidden"
+      ? ((cartModalOverlay.style.visibility = "visible"),
+        (cartModalOverlay.style.opacity = "1"))
+      : ((cartModalOverlay.style.visibility = "hidden"),
+        (cartModalOverlay.style.opacity = "0")); 
+  });
+
+  //close modal overlay on overlay click
+  /*cartModalOverlay.addEventListener("click", (e) => {
+    if (e.target.classList.contains("cart-modal-overlay")) {
+      console.log("closed on overlay click");
+      cartModalOverlay.style.visibility = "hidden";
+      cartModalOverlay.style.opacity = "0";
+    }
+  });*/
+
+  //hide cart modal on close btn click
+  cartCloseButton.addEventListener("click", () => {
+    cartModal.style.transform = "translateX(102%)";
+    console.log("closed by close button click");
   });
 
   // total number of items shown on span cart

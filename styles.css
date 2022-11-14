@@ -5,6 +5,9 @@
     --divider-color: #d4223a;
     --book-border-color: #ded9d3;
     --book-author-color: #666;
+    --cart-modal-color: #f8f8f8;
+    --cart-block-color : #f0f0f0;
+
 }
 
 
@@ -172,7 +175,6 @@ nav {
 /* === Cart modal === */
 
 .cart-modal-overlay {
-    opacity: 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -180,8 +182,31 @@ nav {
     height: 100%;
     background-color: rgba(0, 0, 0, .7);
     z-index: 4;
-    transform: opacity;
-    transition: .5s ease-out, .2s ease-in;
+    transition: visibility .7s, opacity .7s;
+}
+
+.cart-modal {
+    background-color: var(--cart-modal-color);
+    left: auto;
+    margin: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    z-index: 5;
+    outline: 0;
+    box-shadow: 0 0 12px 2px rgba(0,0,0,.25);
+    transition: transform 0.3s cubic-bezier(.77,.2,.05,1),opacity 0.4s cubic-bezier(.77,.2,.05,1);
+    text-align: left;
+    /*transform: translateX(0); /* normal is 102% but set to 0 to test*/
+    cursor: auto;
+}
+
+#cart-close.btn {
+    z-index: 10;
 }
 
 
