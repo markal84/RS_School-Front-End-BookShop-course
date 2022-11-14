@@ -182,7 +182,7 @@ nav {
     height: 100%;
     background-color: rgba(0, 0, 0, .7);
     z-index: 4;
-    transition: visibility .7s, opacity .7s;
+    transition: visibility .3s, opacity .3s;
 }
 
 .cart-modal {
@@ -199,7 +199,7 @@ nav {
     z-index: 5;
     outline: 0;
     box-shadow: 0 0 12px 2px rgba(0,0,0,.25);
-    transition: transform 0.3s cubic-bezier(.77,.2,.05,1),opacity 0.4s cubic-bezier(.77,.2,.05,1);
+    transition: transform 0.5s cubic-bezier(.77,.2,.05,1);
     text-align: left;
     /*transform: translateX(0); /* normal is 102% but set to 0 to test*/
     cursor: auto;

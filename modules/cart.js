@@ -11,14 +11,15 @@ export const cart = () => {
     class: "cart-modal-overlay",
     style: "visibility: hidden; opacity: 0",
   });
-  //cartIcon.append(cartModalOverlay);
+  //here
+  document.body.append(cartModalOverlay);
 
   //cart modal
   const cartModal = createEl("div", {
     class: "cart-modal",
     style: "transform:translateX(102%)",
   });
-  document.body.append(cartModal);
+  cartModalOverlay.append(cartModal);
 
   //cart close button
   const cartCloseButton = createEl("i", {
@@ -34,35 +35,41 @@ export const cart = () => {
   });
 
   // show overlay on cart icon click
-  /*cartIcon.addEventListener("click", () => {
+  cartIcon.addEventListener("click", () => {
     if (cartModalOverlay.style.visibility === "hidden") {
+      cartModal.style.transform = "translateX(0)";
       cartModalOverlay.style.visibility = "visible";
       cartModalOverlay.style.opacity = "1";
-      console.log("open cart");
-    } else {
+      //console.log("open cart");
+    } /*else {
       cartModalOverlay.style.visibility = "hidden";
       cartModalOverlay.style.opacity = "0";
-      console.log("close cart");
-    }
+      //console.log("close cart");
+    }*/
     /*cartModalOverlay.style.visibility === "hidden"
       ? ((cartModalOverlay.style.visibility = "visible"),
         (cartModalOverlay.style.opacity = "1"))
       : ((cartModalOverlay.style.visibility = "hidden"),
-        (cartModalOverlay.style.opacity = "0")); 
+        (cartModalOverlay.style.opacity = "0")); */
   });
 
   //close modal overlay on overlay click
-  /*cartModalOverlay.addEventListener("click", (e) => {
+  cartModalOverlay.addEventListener("click", (e) => {
     if (e.target.classList.contains("cart-modal-overlay")) {
       console.log("closed on overlay click");
       cartModalOverlay.style.visibility = "hidden";
       cartModalOverlay.style.opacity = "0";
+      cartModal.style.transform = "translateX(102%)";
     }
-  });*/
+  });
 
   //hide cart modal on close btn click
   cartCloseButton.addEventListener("click", () => {
+    /*cartModal.style.transform = "translateX(102%)";
+    console.log("closed by close button click");*/
     cartModal.style.transform = "translateX(102%)";
+    cartModalOverlay.style.visibility = "hidden";
+    cartModalOverlay.style.opacity = "0";
     console.log("closed by close button click");
   });
 
