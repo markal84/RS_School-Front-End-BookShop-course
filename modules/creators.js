@@ -63,8 +63,10 @@ export const createBookList = () => {
       booksContainer.append(book);
     });
 
+    //return appendData;
+
     /*
-    For now put cart function here because here i have acces to elements created from json 
+    For now put cart function here because here I have acces to elements created from json 
     */
     cart();
 

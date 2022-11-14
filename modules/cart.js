@@ -1,8 +1,25 @@
 // temporary put inside creators > createBookList
 
+import { createEl } from "./creators.js";
+
 export const cart = () => {
   // cart icon
   const cartIcon = document.querySelector("#cart-icon-el");
+
+  // cart modal overlay
+  const cartModalOverlay = createEl("div", {
+    class: "cart-modal-overlay",
+    style: "opacity:0",
+  });
+  cartIcon.append(cartModalOverlay);
+
+  // show overlay on cart icon click
+  cartIcon.addEventListener("click", () => {
+    cartModalOverlay.style.opacity === "0"
+      ? (cartModalOverlay.style.opacity = "1")
+      : (cartModalOverlay.style.opacity = "0");
+  });
+
   // total number of items shown on span cart
   let numberItems = 0;
   //select place when total will be displayed
@@ -26,8 +43,4 @@ export const cart = () => {
     });
     return numberItems;
   });
-
-  /*addToCart.addEventListener("click", () => {
-    return numberItems++;
-  });*/
 };

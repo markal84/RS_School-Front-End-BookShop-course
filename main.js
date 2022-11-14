@@ -12,7 +12,7 @@ import {
 
 import { addClassOnScroll } from "./modules/helpers.js";
 
-import { cart } from "./modules/cart.js";
+//import { cart } from "./modules/cart.js";
 
 /*
 ///// Main Page
