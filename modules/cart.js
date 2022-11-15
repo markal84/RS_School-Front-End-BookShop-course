@@ -1,6 +1,12 @@
 // temporary put inside creators > createBookList
 
 import { createEl } from "./creators.js";
+import {
+  showCart,
+  closeCart,
+  closeCartOverlay,
+  showCartOverlay,
+} from "./helpers.js";
 
 export const cart = () => {
   // cart icon
@@ -17,15 +23,16 @@ export const cart = () => {
   //cart modal
   const cartModal = createEl("div", {
     class: "cart-modal",
-    style: "transform:translateX(102%)",
+    style: "transform: translateX(102%)",
   });
   cartModalOverlay.append(cartModal);
 
   //cart top block
   const cartBlockTop = createEl("div", { class: "cart-block" });
 
-  cartBlockTop.innerHTML = `<div class="cart-block-title">Shopping Cart <span id="cart-block-title-items">(0)</span></div>
-                            <div class="cart-block-close"></div>`;
+  cartBlockTop.innerHTML = `
+    <div class="cart-block-title">Shopping Cart <span id="cart-block-title-items">(0)</span></div>
+    <div class="cart-block-close"></div>`;
 
   cartModal.append(cartBlockTop);
 
@@ -41,49 +48,17 @@ export const cart = () => {
 
   cartBlockTopClose.append(cartCloseButton);
 
-  cartIcon.addEventListener("click", () => {
-    cartModal.style.transform = "translateX(0)";
-    console.log("open by cart button");
-  });
+  //show cart on cart icon click
+  cartIcon.addEventListener("click", showCart);
 
   // show overlay on cart icon click
-  cartIcon.addEventListener("click", () => {
-    if (cartModalOverlay.style.visibility === "hidden") {
-      cartModal.style.transform = "translateX(0)";
-      cartModalOverlay.style.visibility = "visible";
-      cartModalOverlay.style.opacity = "1";
-      //console.log("open cart");
-    } /*else {
-      cartModalOverlay.style.visibility = "hidden";
-      cartModalOverlay.style.opacity = "0";
-      //console.log("close cart");
-    }*/
-    /*cartModalOverlay.style.visibility === "hidden"
-      ? ((cartModalOverlay.style.visibility = "visible"),
-        (cartModalOverlay.style.opacity = "1"))
-      : ((cartModalOverlay.style.visibility = "hidden"),
-        (cartModalOverlay.style.opacity = "0")); */
-  });
+  cartIcon.addEventListener("click", showCartOverlay);
 
   //close modal overlay on overlay click
-  cartModalOverlay.addEventListener("click", (e) => {
-    if (e.target.classList.contains("cart-modal-overlay")) {
-      console.log("closed on overlay click");
-      cartModalOverlay.style.visibility = "hidden";
-      cartModalOverlay.style.opacity = "0";
-      cartModal.style.transform = "translateX(102%)";
-    }
-  });
+  cartModalOverlay.addEventListener("click", closeCartOverlay);
 
   //hide cart modal on close btn click
-  cartCloseButton.addEventListener("click", () => {
-    /*cartModal.style.transform = "translateX(102%)";
-    console.log("closed by close button click");*/
-    cartModal.style.transform = "translateX(102%)";
-    cartModalOverlay.style.visibility = "hidden";
-    cartModalOverlay.style.opacity = "0";
-    console.log("closed by close button click");
-  });
+  cartCloseButton.addEventListener("click", closeCart);
 
   // total number of items shown on span cart
   let numberItems = 0;

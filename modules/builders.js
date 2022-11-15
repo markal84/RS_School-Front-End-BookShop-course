@@ -1,5 +1,5 @@
 import { createEl, createLi, createBookList } from "./creators.js";
-import { cart } from "./cart.js";
+import { addClassOnScroll } from "./helpers.js";
 
 const APP = document.querySelector("#app");
 const WPAPPER = createEl("div", { class: "content-wrapper" });
@@ -54,6 +54,7 @@ export const createHeader = () => {
   fragment.append(header);
   //console.log(fragment);
   APP.append(fragment);
+  addClassOnScroll();
 };
 
 export const createDivider = () => {

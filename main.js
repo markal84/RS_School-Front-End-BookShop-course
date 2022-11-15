@@ -10,8 +10,6 @@ import {
   createFooter,
 } from "./modules/builders.js";
 
-import { addClassOnScroll } from "./modules/helpers.js";
-
 //import { cart } from "./modules/cart.js";
 
 /*
@@ -41,7 +39,5 @@ createBooksCatalog();
 /// Footer
 */
 createFooter();
-
-addClassOnScroll();
 
 //window.addEventListener("load", cart());
