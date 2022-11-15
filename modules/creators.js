@@ -49,7 +49,7 @@ export const createBookList = () => {
       book.innerHTML = `<p class="book-author">${el.author}</p>
       <div class="book-image relative"><img src=${
         el.imageLink
-      } alt="book"></img>
+      } class="product-img" alt="book"></img>
       <i class="button button__add-to-cart absolute fa-solid fa-cart-plus"></i>
       </div>
       <p class="book-title">${el.title}</p>

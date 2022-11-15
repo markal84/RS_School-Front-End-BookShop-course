@@ -224,6 +224,28 @@ nav {
     padding-left: 1rem;
 }
 
+.cart-block-content {
+    float: left;
+    width: 100%;
+    max-width: 370px;
+    height: 100%;
+    padding: 1.43rem 1.07rem 0 1.07rem;
+}
+
+.cart-block-content .no-items {
+    text-align: center;
+}
+
+.cart-block-content .product-rows {
+    margin-top: 2rem;
+    height: 50px;
+}
+
+.cart-block-content .product-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 #cart-close-btn {
     cursor: pointer;

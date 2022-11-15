@@ -31,7 +31,7 @@ export const addClassOnScroll = () => {
   });
 };
 
-// cart helpers
+/// cart helpers
 
 export const showCart = (e) => {
   e.target.style.transform = "translateX(0)";
@@ -67,3 +67,5 @@ export const closeCart = () => {
   cartModalOverlayEl.style.opacity = "0";
   console.log("closed by close button click");
 };
+
+// add to cart
