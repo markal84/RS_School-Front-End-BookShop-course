@@ -55,14 +55,14 @@ export const cart = () => {
 
   //cart content block no items
   const cartBlockContentNoItem = createEl("div", { class: "no-items" });
-  cartBlockContentNoItem.innerHTML = `<p>No items in cart yet</p>`;
+  cartBlockContentNoItem.innerHTML = `<p class="no-items-text">No items in cart yet</p>`;
 
   //cart contect block added products list
   const cartBlockContentItems = createEl("div", { class: "product-rows" });
 
   //cart content block added product
-  const cartBlockContentItem = createEl("div", { class: "product-row" });
-  cartBlockContentItems.append(cartBlockContentItem);
+  //const cartBlockContentItem = createEl("div", { class: "product-row" });
+  //cartBlockContentItems.append(cartBlockContentItem);
 
   //append cart block content
   cartBlockContent.append(cartBlockContentNoItem, cartBlockContentItems);
@@ -86,7 +86,8 @@ export const cart = () => {
 
   const addItemToCart = (price, imageSrc) => {
     const productsRow = document.querySelector(".product-rows");
-    const productRow = document.querySelector(".product-row");
+    //const productRow = document.querySelector(".product-row");
+    const productRow = createEl("div", { class: "product-row" });
     //console.log(productsRow);
 
     const productRowItems = `
@@ -96,7 +97,20 @@ export const cart = () => {
     `;
 
     productRow.innerHTML = productRowItems;
-    console.log(productsRow.innerHTML);
+    productsRow.append(productRow);
+    console.log("added to cart");
+
+    //update number of items
+    const displayNumbers = document.querySelector("#cart-quantity-total");
+    const displayNumbersCart = document.querySelector(
+      "#cart-block-title-items"
+    );
+    const cartQuantity = productsRow.children.length;
+    displayNumbers.textContent = cartQuantity;
+    displayNumbersCart.textContent = `(${cartQuantity})`;
+
+    //remove there is no items in cart text
+    document.querySelector(".no-items-text").innerText = "Selected items";
   };
 
   const addToCartClicked = (e) => {

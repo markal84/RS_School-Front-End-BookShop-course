@@ -45,7 +45,7 @@ export const createHeader = () => {
     class: "cart-quantity absolute",
     id: "cart-quantity-total",
   });
-  //navCartQuantity.textContent = "0";
+  navCartQuantity.textContent = "0";
   navCartIcon.append(navCartQuantity);
 
   // append all nav elements to nav menu

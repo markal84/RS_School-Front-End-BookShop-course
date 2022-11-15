@@ -160,7 +160,6 @@ nav {
 
 .cart-quantity {
     /* show when add to cart */
-    visibility: hidden;
     font-size: 0.9rem;
     background-color: var(--divider-color);
     padding: 0.3rem;
@@ -168,8 +167,8 @@ nav {
     border-radius: 50%;
     font-weight: 500;
     color: #f5f0e9;
-    top: -27%;
-    left: 60%;
+    top: 11%;
+    left: 49%;
     text-align: center;
 }
 
