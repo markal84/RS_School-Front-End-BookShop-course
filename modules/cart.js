@@ -138,7 +138,11 @@ export const cart = () => {
     const cartQuantity = productsRow.children.length;
     displayNumbers.textContent = cartQuantity;
     displayNumbersCart.textContent = `(${cartQuantity})`;
-    console.log("remove");
+    if (cartQuantity === 0) {
+      document.querySelector(".no-items-text").innerText =
+        "No items in cart yet";
+    }
+    console.log("removed from cart");
   };
 
   const addToCartClicked = (e) => {
