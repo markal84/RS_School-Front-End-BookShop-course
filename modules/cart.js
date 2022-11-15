@@ -60,12 +60,23 @@ export const cart = () => {
   //cart contect block added products list
   const cartBlockContentItems = createEl("div", { class: "product-rows" });
 
-  //cart content block added product
-  //const cartBlockContentItem = createEl("div", { class: "product-row" });
-  //cartBlockContentItems.append(cartBlockContentItem);
+  //total row
+  const cartBlockTotal = createEl("div", { class: "products-total" });
+
+  const productTotal = `
+    <h3 class="cart-total">Total</h1>
+    <span class="total-price">0 PLN</span>
+    <div class="button-purchase">Confirm Order</div>
+  `;
+
+  cartBlockTotal.innerHTML = productTotal;
 
   //append cart block content
-  cartBlockContent.append(cartBlockContentNoItem, cartBlockContentItems);
+  cartBlockContent.append(
+    cartBlockContentNoItem,
+    cartBlockContentItems,
+    cartBlockTotal
+  );
 
   //show cart on cart icon click
   cartIcon.addEventListener("click", showCart);
@@ -86,9 +97,7 @@ export const cart = () => {
 
   const addItemToCart = (price, imageSrc, author, title) => {
     const productsRow = document.querySelector(".product-rows");
-    //const productRow = document.querySelector(".product-row");
     const productRow = createEl("div", { class: "product-row" });
-    //console.log(productsRow);
 
     const productRowItems = `
       <img class="cart-image" src="${imageSrc}" alt="cart product image">

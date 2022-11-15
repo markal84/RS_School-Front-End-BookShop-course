@@ -190,6 +190,8 @@ nav {
     left: auto;
     margin: 0;
     position: fixed;
+    overflow-y: auto;
+    overflow-x: hidden;
     right: 0;
     top: 0;
     padding: 0;
@@ -284,6 +286,39 @@ nav {
 
 .button-remove-product:hover {
     opacity: 1;
+}
+
+.products-total {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    padding: 0 1rem;
+}
+
+.cart-total {
+    font-size: 1.2rem;
+    order: 1;
+    flex-basis: 50%;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.total-price {
+    font-size: 1.2rem;
+    font-weight: 500;
+    order: 2;
+    flex-basis: 50%;
+    text-align: right;
+}
+
+.button-purchase {
+    align-self: flex-end;
+    order: 3;
+    flex-basis: 100%;
+    text-align: center;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    cursor: pointer;
 }
 
 
