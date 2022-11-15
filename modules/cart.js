@@ -102,6 +102,14 @@ export const cart = () => {
 
     productRow.innerHTML = productRowItems;
     productsRow.append(productRow);
+    const removeItemButton = document.querySelectorAll(
+      ".button-remove-product"
+    );
+    for (let i = 0; i < removeItemButton.length; i++) {
+      const button = removeItemButton[i];
+      button.addEventListener("click", removeItem);
+    }
+
     console.log("added to cart");
 
     //update number of items
@@ -117,6 +125,22 @@ export const cart = () => {
     document.querySelector(".no-items-text").innerText = "Selected items";
   };
 
+  //remove item from cart
+  // think how to simplify this function
+  const removeItem = (e) => {
+    const buttonClicked = e.target;
+    buttonClicked.parentElement.remove();
+    const productsRow = document.querySelector(".product-rows");
+    const displayNumbers = document.querySelector("#cart-quantity-total");
+    const displayNumbersCart = document.querySelector(
+      "#cart-block-title-items"
+    );
+    const cartQuantity = productsRow.children.length;
+    displayNumbers.textContent = cartQuantity;
+    displayNumbersCart.textContent = `(${cartQuantity})`;
+    console.log("remove");
+  };
+
   const addToCartClicked = (e) => {
     const button = e.target;
     const parent = button.closest("li");
@@ -124,7 +148,7 @@ export const cart = () => {
     //console.log(cartItem);
     let price = cartItem.querySelectorAll(".book-price")[0].innerText;
     //return price
-    console.log("item price " + price);
+    //console.log("item price " + price);
 
     let imageSrc = cartItem.querySelectorAll(".product-img")[0].src;
     //console.log(imageScr);
