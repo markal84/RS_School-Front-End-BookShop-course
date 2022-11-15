@@ -84,7 +84,7 @@ export const cart = () => {
   const addToCart = document.querySelectorAll(".button__add-to-cart");
   //console.log(addToCart);
 
-  const addItemToCart = (price, imageSrc) => {
+  const addItemToCart = (price, imageSrc, author, title) => {
     const productsRow = document.querySelector(".product-rows");
     //const productRow = document.querySelector(".product-row");
     const productRow = createEl("div", { class: "product-row" });
@@ -92,8 +92,12 @@ export const cart = () => {
 
     const productRowItems = `
       <img class="cart-image" src="${imageSrc}" alt="cart product image">
-      <span class="cart-price">${price}</span>
-      <div class=button-remove-product">Remove</button>
+      <div class="cart-info">
+        <p class="cart-author">${author}</p>
+        <p class="cart-title">${title}</p>
+        <p class="cart-price">${price}</p>
+      </div> 
+      <div class="button-remove-product">Remove</button>
     `;
 
     productRow.innerHTML = productRowItems;
@@ -124,7 +128,13 @@ export const cart = () => {
 
     let imageSrc = cartItem.querySelectorAll(".product-img")[0].src;
     //console.log(imageScr);
-    addItemToCart(price, imageSrc);
+
+    //return author
+    let author = cartItem.querySelectorAll(".book-author")[0].innerText;
+
+    //return title
+    let title = cartItem.querySelectorAll(".book-title")[0].innerText;
+    addItemToCart(price, imageSrc, author, title);
     //updateCartPrice();
   };
 
@@ -133,28 +143,4 @@ export const cart = () => {
     //console.log(addToCart);
     button.addEventListener("click", addToCartClicked);
   }
-
-  /*// total number of items shown on span cart
-  let numberItems = 0;
-  //select place when total will be displayed
-  const displayNumbers = document.querySelector("#cart-quantity-total");
-
-  //console.log(displayNumbers);
-
-  const addToCart = document.querySelectorAll(".button__add-to-cart");
-  //console.log(addToCart);
-
-  addToCart.forEach((el) => {
-    el.addEventListener("click", () => {
-      numberItems++;
-      if (numberItems > 0) {
-        displayNumbers.classList.add("visible");
-      } else {
-        displayNumbers.classList.remove("visible");
-      }
-      console.log("number of items in cart is " + numberItems);
-      displayNumbers.textContent = `${numberItems}`;
-    });
-    return numberItems;
-  });*/
 };
