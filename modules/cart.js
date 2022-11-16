@@ -97,7 +97,10 @@ export const cart = () => {
 
   const addItemToCart = (price, imageSrc, author, title) => {
     const productsRow = document.querySelector(".product-rows");
-    const productRow = createEl("div", { class: "product-row" });
+    const productRow = createEl("div", {
+      class: "product-row",
+      style: "transform: translateX(0)",
+    });
 
     const productRowItems = `
       <img class="cart-image" src="${imageSrc}" alt="cart product image">
@@ -119,8 +122,6 @@ export const cart = () => {
       button.addEventListener("click", removeItem);
     }
 
-    console.log("added to cart");
-
     //update number of items
     const displayNumbers = document.querySelector("#cart-quantity-total");
     const displayNumbersCart = document.querySelector(
@@ -132,6 +133,8 @@ export const cart = () => {
 
     //remove there is no items in cart text
     document.querySelector(".no-items-text").innerText = "Selected items";
+
+    console.log("added to cart");
   };
 
   //update total price
@@ -155,7 +158,7 @@ export const cart = () => {
       //console.log(typeof total);
       //console.log("total sum is " + total);
     }
-    console.log("total sum is " + total);
+    //console.log("total sum is " + total);
     document.querySelector(".total-price").innerHTML = total + ".00 PLN";
   };
 
@@ -163,12 +166,14 @@ export const cart = () => {
   // think how to simplify this function
   const removeItem = (e) => {
     const buttonClicked = e.target;
+    buttonClicked.parentElement.style.transform = "translateX(600px)";
     buttonClicked.parentElement.remove();
     const productsRow = document.querySelector(".product-rows");
     const displayNumbers = document.querySelector("#cart-quantity-total");
     const displayNumbersCart = document.querySelector(
       "#cart-block-title-items"
     );
+    //console.log(buttonClicked.parentElement);
     const cartQuantity = productsRow.children.length;
     displayNumbers.textContent = cartQuantity;
     displayNumbersCart.textContent = `(${cartQuantity})`;

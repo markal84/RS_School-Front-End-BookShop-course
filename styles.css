@@ -250,6 +250,7 @@ nav {
     border-bottom: 0.5px solid var(--book-border-color);
     background-color: white;
     margin-bottom: 1rem;
+    transition: transform ease-in-out .2s;
 }
 
 #cart-close-btn {
