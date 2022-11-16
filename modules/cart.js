@@ -69,7 +69,7 @@ export const cart = () => {
   const productTotal = `
     <h3 class="cart-total">Total</h1>
     <span class="total-price">0 PLN</span>
-    <div class="button-purchase">Confirm Order</div>
+    <div class="button-purchase"><a class="cart-checkout" href="./pages/order.html">Proceed To Checkout</a></div>
   `;
 
   cartBlockTotal.innerHTML = productTotal;

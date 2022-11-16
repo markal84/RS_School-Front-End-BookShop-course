@@ -1,6 +1,8 @@
 /* ====== Global vars ===== */
 :root {
     --main-font-color: #333;
+    --hero-font-color: #2e2e2e;
+    --hero-dscr-color: #303b45;
     --main-background-color: #f5f0e9;
     --divider-color: #d4223a;
     --book-border-color: #ded9d3;
@@ -322,6 +324,17 @@ nav {
     cursor: pointer;
 }
 
+.cart-checkout {
+    padding: 9px 22px 9px;
+    background-color: var(--main-font-color);
+    color: white !important;
+    vertical-align: middle;
+    transition: all ease-in-out 0.2s;
+}
+
+.cart-checkout:hover {
+  background-color: var(--divider-color);  
+}
 
 /* === Divider === */
 
@@ -339,6 +352,45 @@ nav {
     background-repeat: no-repeat;
     background-size: cover;
     height: 488px;
+}
+
+.hero-caption {
+    top: 25%;
+    left: 10%;
+    right: auto;
+    bottom: auto;
+    text-align: left;
+    text-transform: capitalize;
+}
+
+.hero-caption_title {
+    font-size: 1.57rem;
+    color: var(--hero-font-color);
+    line-height: 2.71rem;
+    letter-spacing: 0;
+    font-weight: 500;
+}
+
+.hero-caption__dscr {
+    font-size: 3.93rem;
+    line-height: 4.5rem;
+    letter-spacing: -0.3px;
+    font-weight: 500;
+    color: var(--hero-dscr-color);
+}
+
+.hero-caption__button {
+    background-color: var(--main-font-color);
+    float: left;
+    margin-top: 3rem;
+    padding: 8px 30px 8px 29px;
+}
+
+.hero-caption__button a {
+    color: white !important;
+    padding: 9px 33px 9px 32px;
+    letter-spacing: 0.29px;
+    line-height: 1.43rem; 
 }
 
 /* === Books list === */
@@ -429,6 +481,7 @@ nav {
     top: -1000%;
     left: -2%;
     width: 100%;
+    height: 250px;
     background-color: rgba(255, 255, 255, 0.94);
     text-align: center;
     z-index: 1;

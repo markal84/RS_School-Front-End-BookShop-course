@@ -62,7 +62,7 @@ export const closeCart = () => {
   console.log("closed by close button click");
 };
 
-//drag and drop function (refactor later - now need to copy all of the add to cart procedure)
+//drag and drop function (refactor later - now need to copy almost all from the add to cart procedure)
 //drag start
 export const onDragStart = (e) => {
   //console.log(document.querySelectorAll(".product-img"));
@@ -193,6 +193,6 @@ export const onDrop = (e) => {
   document.querySelector(".no-items-text").innerText = "Selected items";
 
   e.dataTransfer.clearData();
-  console.log("perfect drop");
+  console.log("add by drag & drop");
   //dropzone.appendChild(clone);
 };

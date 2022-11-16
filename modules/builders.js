@@ -80,8 +80,8 @@ export const createHero = () => {
 
   const heroCaption = createEl("div", { class: "absolute hero-caption" });
   heroCaption.innerHTML = `<div class="hero-caption_title">Branded Choice</div>
-     <div class="hero-caption__dscr">Best Sell Books Collection</div>
-     <div class="hero-caption__button">Shop Now</div>`;
+     <div class="hero-caption__dscr">Best Sell Books <br>Collection</div>
+     <div class="hero-caption__button"><a href="#">Shop Now</a></div>`;
 
   hero.append(heroWrapper);
   heroWrapper.append(heroContainer);
