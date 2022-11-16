@@ -6,6 +6,8 @@ import {
   closeCart,
   closeCartOverlay,
   showCartOverlay,
+  onDragStart,
+  onDragOver,
 } from "./helpers.js";
 
 export const cart = () => {
@@ -211,4 +213,12 @@ export const cart = () => {
     //console.log(addToCart);
     button.addEventListener("click", addToCartClicked);
   }
+
+  //add drag and drop function
+  const productImgs = document.querySelectorAll(".product-img");
+  productImgs.forEach((img) => {
+    img.addEventListener("dragstart", onDragStart);
+  });
+
+  cartIcon.addEventListener("dragover", onDragOver);
 };

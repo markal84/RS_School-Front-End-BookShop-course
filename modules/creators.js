@@ -47,12 +47,11 @@ export const createBookList = () => {
         class: `book book${data.indexOf(el) + 1}`,
       });
       book.innerHTML = `<p class="book-author">${el.author}</p>
-      <div class="book-image relative"><img src=${
-        el.imageLink
-      } id="product-img${
+      <div class="book-image relative">
+        <img src=${el.imageLink} id="product-img${
         data.indexOf(el) + 1
-      }" class="product-img" alt="book" draggable="true"></img>
-      <i class="button button__add-to-cart absolute fa-solid fa-cart-plus"></i>
+      }" class="product-img" alt="book" draggable="true">
+        <i class="button button__add-to-cart absolute fa-solid fa-cart-plus"></i>
       </div>
       <p class="book-title">${el.title}</p>
       <p class="book-price">${el.price}.<span>00</span> PLN<p>
@@ -61,7 +60,6 @@ export const createBookList = () => {
         el.description
       }</p>
       </div>`;
-
       booksContainer.append(book);
     });
 
@@ -80,10 +78,6 @@ export const createBookList = () => {
         const showDescr = el.querySelector(".book-descr");
         showDescr.classList.toggle("show");
         // work later on change text in button where class is present
-
-        /*if (showDescr.classList.contains("show")) {
-          el.querySelector(".button__show-more").innerText = "show less";
-        }*/
       });
     });
   };

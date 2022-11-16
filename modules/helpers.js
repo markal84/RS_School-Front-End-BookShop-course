@@ -68,4 +68,14 @@ export const closeCart = () => {
   console.log("closed by close button click");
 };
 
-// add to cart
+//drag and drop function
+//drag start
+export const onDragStart = (e) => {
+  //console.log(document.querySelectorAll(".product-img"));
+  e.dataTransfer.setData("text/plain", e.target.id);
+  console.log("start dragging " + e.target.id);
+};
+
+export const onDragOver = (e) => {
+  e.preventDefault();
+};

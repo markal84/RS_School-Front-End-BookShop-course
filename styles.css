@@ -292,7 +292,7 @@ nav {
 .products-total {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 1rem;
+    margin-top: 3rem;
     padding: 0 1rem;
 }
 

@@ -10,8 +10,6 @@ import {
   createFooter,
 } from "./modules/builders.js";
 
-//import { cart } from "./modules/cart.js";
-
 /*
 ///// Main Page
 */
@@ -39,5 +37,3 @@ createBooksCatalog();
 /// Footer
 */
 createFooter();
-
-//window.addEventListener("load", cart());
