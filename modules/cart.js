@@ -8,6 +8,7 @@ import {
   showCartOverlay,
   onDragStart,
   onDragOver,
+  onDrop,
 } from "./helpers.js";
 
 export const cart = () => {
@@ -221,4 +222,5 @@ export const cart = () => {
   });
 
   cartIcon.addEventListener("dragover", onDragOver);
+  cartIcon.addEventListener("drop", onDrop);
 };

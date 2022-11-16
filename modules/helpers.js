@@ -72,10 +72,52 @@ export const closeCart = () => {
 //drag start
 export const onDragStart = (e) => {
   //console.log(document.querySelectorAll(".product-img"));
+  const parent = e.target.closest("li");
   e.dataTransfer.setData("text/plain", e.target.id);
+  e.dataTransfer.setData(
+    "price",
+    parent.querySelector(".book-price").innerText
+  );
+  e.dataTransfer.setData("img", parent.querySelector(".product-img").src);
+  e.dataTransfer.setData(
+    "author",
+    parent.querySelector(".book-author").innerText
+  );
+  e.dataTransfer.setData(
+    "title",
+    parent.querySelector(".book-title").innerText
+  );
+
+  //console.log(parent.querySelector(".book-price").innerText);
   console.log("start dragging " + e.target.id);
 };
 
 export const onDragOver = (e) => {
   e.preventDefault();
+};
+
+export const onDrop = (e) => {
+  const id = e.dataTransfer.getData("text");
+  const price = e.dataTransfer.getData("price");
+  const img = e.dataTransfer.getData("img");
+  const author = e.dataTransfer.getData("author");
+  const title = e.dataTransfer.getData("title");
+  console.log(
+    "price: " +
+      price +
+      " img src: " +
+      img +
+      " author: " +
+      author +
+      " title: " +
+      title
+  );
+  const draggableElement = document.getElementById(id);
+  const clone = draggableElement.cloneNode(true);
+  const fragment = new DocumentFragment();
+  clone.appendChild(fragment);
+  const dropzone = e.target;
+  e.dataTransfer.clearData();
+  console.log("perfect drop");
+  dropzone.appendChild(clone);
 };
