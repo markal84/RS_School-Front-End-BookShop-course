@@ -1,10 +1,4 @@
-// open popup on click
-
-/*export const openPopup = (e.target) => {
-  //e.preventDefault();
-  const popup = el.querySelector(".book-descr");
-  popup.classList.toggle("show");
-};*/
+import { createEl } from "./creators.js";
 
 export const addClassOnScroll = () => {
   let scrollPos = window.scrollY;
@@ -68,7 +62,7 @@ export const closeCart = () => {
   console.log("closed by close button click");
 };
 
-//drag and drop function
+//drag and drop function (refactor later - now need to copy all of the add to cart procedure)
 //drag start
 export const onDragStart = (e) => {
   //console.log(document.querySelectorAll(".product-img"));
@@ -102,7 +96,7 @@ export const onDrop = (e) => {
   const img = e.dataTransfer.getData("img");
   const author = e.dataTransfer.getData("author");
   const title = e.dataTransfer.getData("title");
-  console.log(
+  /*console.log(
     "price: " +
       price +
       " img src: " +
@@ -111,13 +105,94 @@ export const onDrop = (e) => {
       author +
       " title: " +
       title
-  );
+  );*/
   const draggableElement = document.getElementById(id);
   const clone = draggableElement.cloneNode(true);
   const fragment = new DocumentFragment();
   clone.appendChild(fragment);
-  const dropzone = e.target;
+
+  //copy pase from cart
+  const updateCartPrice = () => {
+    let total = 0;
+    const productRow = document.querySelectorAll(".product-row");
+    for (let i = 0; i < productRow.length; i++) {
+      const cartRow = productRow[i];
+      //console.log("numbers of items in cart is " + productRow.length);
+      const productPrice = cartRow.querySelectorAll(".cart-price")[0];
+      //console.log(productPrice);
+      //console.log(productPrice.innerHTML);
+      //console.log(parseFloat(productPrice.innerHTML).toFixed(2));
+      let price = parseFloat(productPrice.innerHTML);
+      //console.log("price is " + typeof price);
+      //Number(price);
+      //console.log("price is now a " + typeof price);
+      //console.log("price of item is " + price);
+      total += price;
+      //console.log(typeof total);
+      //console.log("total sum is " + total);
+    }
+    //console.log("total sum is " + total);
+    document.querySelector(".total-price").innerHTML = total + ".00 PLN";
+  };
+
+  //remove item from cart
+  // think how to simplify this function
+  const removeItem = (e) => {
+    const buttonClicked = e.target;
+    buttonClicked.parentElement.style.transform = "translateX(600px)";
+    buttonClicked.parentElement.remove();
+    const productsRow = document.querySelector(".product-rows");
+    const displayNumbers = document.querySelector("#cart-quantity-total");
+    const displayNumbersCart = document.querySelector(
+      "#cart-block-title-items"
+    );
+    //console.log(buttonClicked.parentElement);
+    const cartQuantity = productsRow.children.length;
+    displayNumbers.textContent = cartQuantity;
+    displayNumbersCart.textContent = `(${cartQuantity})`;
+    if (cartQuantity === 0) {
+      document.querySelector(".no-items-text").innerText =
+        "No items in cart yet";
+    }
+    updateCartPrice();
+    console.log("removed from cart");
+  };
+
+  const dropzone = document.querySelector(".product-rows");
+  //console.log(dropzone);
+  const productRow = createEl("div", {
+    class: "product-row",
+    style: "transform: translateX(0)",
+  });
+  const productRowItems = `
+    <img class="cart-image" src="${img}" alt="cart product image">
+    <div class="cart-info">
+      <p class="cart-author">${author}</p>
+      <p class="cart-title">${title}</p>
+      <p class="cart-price">${price}</p>
+    </div> 
+    <div class="button-remove-product">Remove</button>
+  `;
+  productRow.innerHTML = productRowItems;
+  dropzone.append(productRow);
+  updateCartPrice();
+  const removeItemButton = document.querySelectorAll(".button-remove-product");
+  for (let i = 0; i < removeItemButton.length; i++) {
+    const button = removeItemButton[i];
+    button.addEventListener("click", removeItem);
+  }
+
+  //update number of items
+  const displayNumbers = document.querySelector("#cart-quantity-total");
+  const displayNumbersCart = document.querySelector("#cart-block-title-items");
+  const cartQuantity = dropzone.children.length;
+  displayNumbers.textContent = cartQuantity;
+  displayNumbersCart.textContent = `(${cartQuantity})`;
+
+  //remove there is no items in cart text
+  document.querySelector(".no-items-text").innerText = "Selected items";
+
   e.dataTransfer.clearData();
   console.log("perfect drop");
-  dropzone.appendChild(clone);
+  //dropzone.appendChild(clone);
 };
