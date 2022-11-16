@@ -134,6 +134,31 @@ export const cart = () => {
     document.querySelector(".no-items-text").innerText = "Selected items";
   };
 
+  //update total price
+
+  const updateCartPrice = () => {
+    let total = 0;
+    const productRow = document.querySelectorAll(".product-row");
+    for (let i = 0; i < productRow.length; i++) {
+      const cartRow = productRow[i];
+      //console.log("numbers of items in cart is " + productRow.length);
+      const productPrice = cartRow.querySelectorAll(".cart-price")[0];
+      //console.log(productPrice);
+      //console.log(productPrice.innerHTML);
+      //console.log(parseFloat(productPrice.innerHTML).toFixed(2));
+      let price = parseFloat(productPrice.innerHTML);
+      //console.log("price is " + typeof price);
+      //Number(price);
+      //console.log("price is now a " + typeof price);
+      //console.log("price of item is " + price);
+      total += price;
+      //console.log(typeof total);
+      //console.log("total sum is " + total);
+    }
+    console.log("total sum is " + total);
+    document.querySelector(".total-price").innerHTML = total + ".00 PLN";
+  };
+
   //remove item from cart
   // think how to simplify this function
   const removeItem = (e) => {
@@ -151,6 +176,7 @@ export const cart = () => {
       document.querySelector(".no-items-text").innerText =
         "No items in cart yet";
     }
+    updateCartPrice();
     console.log("removed from cart");
   };
 
@@ -172,7 +198,7 @@ export const cart = () => {
     //return title
     let title = cartItem.querySelectorAll(".book-title")[0].innerText;
     addItemToCart(price, imageSrc, author, title);
-    //updateCartPrice();
+    updateCartPrice();
   };
 
   for (let i = 0; i < addToCart.length; i++) {
