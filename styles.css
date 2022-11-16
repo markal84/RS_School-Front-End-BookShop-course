@@ -209,6 +209,19 @@ nav {
     cursor: auto;
 }
 
+.cart-modal::-webkit-scrollbar {
+    width: 12px;
+}
+
+.cart-modal::-webkit-scrollbar-track {
+   background: var(--cart-block-color);
+}
+
+.cart-modal::-webkit-scrollbar-thumb {
+    background: var(--cart-block-color);
+    height: 2rem;
+}
+
 .cart-block {
     float: left;
     display: inline-flex;
@@ -509,4 +522,13 @@ nav {
 footer {
     border-top: 2px solid var(--book-border-color);
     height: 8vh;
+}
+
+.footer-copy p {
+    margin-top: 2rem;
+    font-weight: 300;
+}
+
+.footer-copy p > span {
+    font-size: 0.6rem
 }

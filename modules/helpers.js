@@ -117,21 +117,10 @@ export const onDrop = (e) => {
     const productRow = document.querySelectorAll(".product-row");
     for (let i = 0; i < productRow.length; i++) {
       const cartRow = productRow[i];
-      //console.log("numbers of items in cart is " + productRow.length);
       const productPrice = cartRow.querySelectorAll(".cart-price")[0];
-      //console.log(productPrice);
-      //console.log(productPrice.innerHTML);
-      //console.log(parseFloat(productPrice.innerHTML).toFixed(2));
       let price = parseFloat(productPrice.innerHTML);
-      //console.log("price is " + typeof price);
-      //Number(price);
-      //console.log("price is now a " + typeof price);
-      //console.log("price of item is " + price);
       total += price;
-      //console.log(typeof total);
-      //console.log("total sum is " + total);
     }
-    //console.log("total sum is " + total);
     document.querySelector(".total-price").innerHTML = total + ".00 PLN";
   };
 
@@ -146,7 +135,6 @@ export const onDrop = (e) => {
     const displayNumbersCart = document.querySelector(
       "#cart-block-title-items"
     );
-    //console.log(buttonClicked.parentElement);
     const cartQuantity = productsRow.children.length;
     displayNumbers.textContent = cartQuantity;
     displayNumbersCart.textContent = `(${cartQuantity})`;
@@ -194,5 +182,4 @@ export const onDrop = (e) => {
 
   e.dataTransfer.clearData();
   console.log("add by drag & drop");
-  //dropzone.appendChild(clone);
 };

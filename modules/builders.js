@@ -119,6 +119,11 @@ export const createFooter = () => {
   footer.append(footerWrapper);
   footerWrapper.append(footerContainer);
 
+  const footerCopy = createEl("div", { class: "footer-copy" });
+  footerCopy.innerHTML = `<p>&copy; Marcin Kaleta 11/22 <span>RS School Course</span></p>`;
+
+  footerContainer.append(footerCopy);
+
   fragment.append(footer);
   APP.append(fragment);
 };
