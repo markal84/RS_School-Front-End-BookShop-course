@@ -499,6 +499,7 @@ nav {
     text-align: center;
     z-index: 1;
     padding: 2%;
+    overflow: hidden;
 }
 
 .button__show-more .show {
@@ -525,6 +526,7 @@ footer {
 }
 
 .footer-copy p {
+    font-size: 0.9rem;
     margin-top: 2rem;
     font-weight: 300;
 }
