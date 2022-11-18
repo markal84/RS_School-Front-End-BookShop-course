@@ -11,6 +11,103 @@
     <!-- <script src="../main.js" type="text/javascript" defer></script> -->
 </head>
 <body>
-    
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="form-container">
+                <div class="form">
+                    <div class="form-card">
+                        <div class="form-title">
+                            Billing Details
+                        </div>
+                        <form action="">
+                            <div class="first-last-name flex">
+                                <div class="name relative">
+                                    <input type="text" id="name">
+                                    <label for="name" class="absolute">First name</label>    
+                                </div>
+                                <div class="last relative">
+                                    <input type="text" id="last-name">
+                                    <label for="last-name">Last name</label>
+                                </div>
+                            </div>
+                            <div class="delivery">
+                                <input type="date" id="delivery">
+                                <label for="delivery" aria-describedby="date-format">Delivery date</label>
+                            </div>
+                            <div class="address flex">
+                                <div class="street relative"></div>
+                                    <input type="text" id="street">
+                                    <label for="street" class="absolute">Street</label>
+                                <div class="house relative">
+                                    <input type="text" id="house">
+                                    <label for="house" class="absolute">House number</label>
+                                </div>
+                                <div class="flat relative">
+                                    <input type="text" id="flat">
+                                    <label for="flat" class="absolute">Flat number</label>    
+                                </div>
+                            </div>
+                            <fieldset>
+                                <legend>Payment type</legend>
+                                <div>
+                                    <input type="radio" id="cash" name="payment">
+                                    <label for="cash">Cash</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="card" name="payment">
+                                    <label for="card">Card</label>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Choose your 2 gifts</legend>
+                                <div>
+                                    <input type="checkbox" id="pack" name="gift">
+                                    <label for="pack">Pack as a gift</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="postcard" name="gift">
+                                    <label for="postcard">Add a postcard</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="discout" name="gift">
+                                    <label for="discout">Next time discount</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="pen" name="gift">
+                                    <label for="pen">Branded pen</label>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <div class="summary">
+                    <div class="form-card">
+                        <div class="form-title">
+                            Summary
+                        </div>
+                        <div class="form-summary">
+                            <div class="price">
+                                <div class="products flex">
+                                    <p>Products</p>
+                                    <p>100.00 PLN</p>
+                                </div>
+                                <div class="shipping flex">
+                                    <p>Shipping</p>
+                                    <p>Gratis</p>
+                                </div>
+                            </div>
+                            <div class="total flex">
+                                <p>Total amount(includind VAT)</p>
+                                <p>120.00 PLN</p>
+                            </div>
+                            <div class="purchase">
+                                <input type="submit" value="confirm purchase">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
