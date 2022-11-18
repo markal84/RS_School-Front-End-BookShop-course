@@ -642,4 +642,5 @@ fieldset {
 input[type=submit]:disabled {
     color: gray!important;
     background-color: lightgray;
+    cursor: not-allowed;
 }
