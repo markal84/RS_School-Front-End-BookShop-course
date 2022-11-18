@@ -21,30 +21,31 @@
                         </div>
                         <form action="">
                             <div class="first-last-name flex">
-                                <div class="name relative">
+                                <div class="name col-rev">
                                     <input type="text" id="name">
-                                    <label for="name" class="absolute">First name</label>    
+                                    <label for="name">First name</label>    
                                 </div>
-                                <div class="last relative">
+                                <div class="last col-rev">
                                     <input type="text" id="last-name">
                                     <label for="last-name">Last name</label>
                                 </div>
                             </div>
-                            <div class="delivery">
+                            <div class="delivery col-rev">
                                 <input type="date" id="delivery">
                                 <label for="delivery" aria-describedby="date-format">Delivery date</label>
                             </div>
+                            <div class="street col-rev">
+                                <input type="text" id="street">
+                                <label for="street">Street</label>
+                            </div>    
                             <div class="address flex">
-                                <div class="street relative"></div>
-                                    <input type="text" id="street">
-                                    <label for="street" class="absolute">Street</label>
-                                <div class="house relative">
-                                    <input type="text" id="house">
-                                    <label for="house" class="absolute">House number</label>
+                                <div class="house col-rev">
+                                    <input type="text" id="house" size="12">
+                                    <label for="house">House number</label>
                                 </div>
-                                <div class="flat relative">
-                                    <input type="text" id="flat">
-                                    <label for="flat" class="absolute">Flat number</label>    
+                                <div class="flat col-rev">
+                                    <input type="text" id="flat" size="12">
+                                    <label for="flat">Flat number</label>    
                                 </div>
                             </div>
                             <fieldset>
@@ -97,11 +98,11 @@
                                 </div>
                             </div>
                             <div class="total flex">
-                                <p>Total amount(includind VAT)</p>
+                                <p>Total</p>
                                 <p>120.00 PLN</p>
                             </div>
                             <div class="purchase">
-                                <input type="submit" value="confirm purchase">
+                                <input type="submit" class="cart-checkout" value="confirm purchase" disabled="disabled">
                             </div>
                         </div>
                     </div>

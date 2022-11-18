@@ -29,6 +29,7 @@ body {
     font-weight: 400;
     line-height: 1.7rem;
     letter-spacing: 0.02rem;
+    accent-color: var(--divider-color);
 }
 
 section {
@@ -87,6 +88,10 @@ ul {
     visibility: hidden !important;
 }
 
+.col-rev {
+    display: flex;
+    flex-direction: column-reverse;
+}
 
 /* ===== Main page classes ===== */
 
@@ -540,9 +545,7 @@ footer {
 
 .form-container {
     display: flex;
-    gap: 1rem;
-    width: 70%;
-    max-width: 70%;
+    max-width: 100%;
     border: 1px solid var(--book-border-color);
     padding: 2rem;
     margin-top: 4rem;
@@ -573,9 +576,38 @@ footer {
     font-weight: 500;
 }
 
+label, legend {
+    font-size: 0.8rem;
+}
+
+.first-last-name {
+    gap: 0.5rem;
+}
+
+.address {
+    justify-content: space-around;
+}
+
+.form-summary {
+    padding: 0 1.75rem 1rem 1.75rem;
+}
+
 .summary {
     flex-basis: 40%;
     padding: 1rem;
+}
+
+.price p {
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.products, .shipping, .total {
+    justify-content: space-between;
+}
+
+.shipping {
+    border-bottom: 1px solid var(--book-border-color);
 }
 
 form {
@@ -592,4 +624,22 @@ form input {
 
 fieldset {
     border: 1px solid var(--book-border-color);
+}
+
+.total p {
+    font-weight: 500;
+    font-size: 1.15rem;
+}
+
+.purchase {
+    text-align: center;
+}
+
+.purchase > input {
+    text-transform: capitalize;
+}
+
+input[type=submit]:disabled {
+    color: gray!important;
+    background-color: lightgray;
 }
