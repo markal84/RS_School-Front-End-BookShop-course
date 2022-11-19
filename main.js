@@ -2,38 +2,10 @@
 ///// Imports
 */
 
-import {
-  createHeader,
-  createDivider,
-  createHero,
-  createBooksCatalog,
-  createFooter,
-} from "./modules/builders.js";
+import { renderPage } from "./modules/render.js";
 
 /*
-///// Main Page
+///// Page
 */
-/*
-//// Header & nav & cart
-*/
-createHeader();
-/*
-//// Divider
-*/
-createDivider();
-/*
-//// Content
-*/
-/*
-///Hero
-*/
-createHero();
-/*
-/// Book Catalog
-*/
-createBooksCatalog();
 
-/*
-/// Footer
-*/
-createFooter();
+renderPage();
