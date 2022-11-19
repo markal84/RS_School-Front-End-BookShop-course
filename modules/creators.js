@@ -27,7 +27,7 @@ export const createLi = (arr) => {
 // fetch books from file and display then on the page
 
 export const createBookList = () => {
-  fetch("../data/books.json")
+  fetch("./books.json")
     .then((response) => {
       return response.json();
     })
