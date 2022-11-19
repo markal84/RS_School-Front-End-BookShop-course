@@ -553,7 +553,6 @@ footer {
 }
 
 .form {
-    flex-basis: 60%;
     padding: 1rem;
 }
 
@@ -593,7 +592,7 @@ label, legend {
 }
 
 .summary {
-    flex-basis: 40%;
+    width: 300px;
     padding: 1rem;
 }
 
@@ -627,6 +626,10 @@ fieldset {
     border: 1px solid var(--book-border-color);
 }
 
+.checkboxes {
+    flex-direction: column;
+}
+
 .total p {
     font-weight: 500;
     font-size: 1.15rem;
@@ -634,6 +637,7 @@ fieldset {
 
 .purchase {
     text-align: center;
+    margin-top: 2rem;
 }
 
 .purchase > input {

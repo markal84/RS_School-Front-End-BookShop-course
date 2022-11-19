@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto+Slab:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../normalize.css">
-    <!-- <script src="../main.js" type="text/javascript" defer></script> -->
+    <script src="./order.js" type="text/javascript" defer></script> 
 </head>
 <body>
     <div class="content-wrapper">
@@ -22,36 +22,36 @@
                         <form action="">
                             <div class="first-last-name flex">
                                 <div class="name col-rev">
-                                    <input type="text" id="name">
+                                    <input type="text" id="name" minlength="4" pattern="^[a-zA-Z]*$" required>
                                     <label for="name">First name</label>    
                                 </div>
                                 <div class="last col-rev">
-                                    <input type="text" id="last-name">
+                                    <input type="text" id="last-name" minlength="5" pattern="^[a-zA-Z]*$" required>
                                     <label for="last-name">Last name</label>
                                 </div>
                             </div>
                             <div class="delivery col-rev">
-                                <input type="date" id="delivery">
+                                <input type="date" id="delivery" required>
                                 <label for="delivery" aria-describedby="date-format">Delivery date</label>
                             </div>
                             <div class="street col-rev">
-                                <input type="text" id="street">
+                                <input type="text" id="street" minlength="5" required>
                                 <label for="street">Street</label>
                             </div>    
                             <div class="address flex">
                                 <div class="house col-rev">
-                                    <input type="text" id="house" size="12">
+                                    <input type="number" id="house" size="12" required>
                                     <label for="house">House number</label>
                                 </div>
                                 <div class="flat col-rev">
-                                    <input type="text" id="flat" size="12">
+                                    <input type="number" id="flat" size="12" required>
                                     <label for="flat">Flat number</label>    
                                 </div>
                             </div>
                             <fieldset>
                                 <legend>Payment type</legend>
                                 <div>
-                                    <input type="radio" id="cash" name="payment">
+                                    <input type="radio" id="cash" name="payment" required>
                                     <label for="cash">Cash</label>
                                 </div>
                                 <div>
@@ -59,25 +59,28 @@
                                     <label for="card">Card</label>
                                 </div>
                             </fieldset>
-                            <fieldset>
+                            <fieldset id="checboxes-box" class="checkboxes">
                                 <legend>Choose your 2 gifts</legend>
                                 <div>
-                                    <input type="checkbox" id="pack" name="gift">
+                                    <input type="checkbox" id="pack" class="check" name="gift">
                                     <label for="pack">Pack as a gift</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="postcard" name="gift">
+                                    <input type="checkbox" id="postcard" class="check" name="gift">
                                     <label for="postcard">Add a postcard</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="discout" name="gift">
+                                    <input type="checkbox" id="discout" class="check" name="gift">
                                     <label for="discout">Next time discount</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="pen" name="gift">
+                                    <input type="checkbox" id="pen" class="check" name="gift">
                                     <label for="pen">Branded pen</label>
                                 </div>
                             </fieldset>
+                            <div class="purchase">
+                                <input type="submit" class="cart-checkout" value="confirm purchase">
+                            </div>    
                         </form>
                     </div>
                 </div>
@@ -100,9 +103,6 @@
                             <div class="total flex">
                                 <p>Total</p>
                                 <p>120.00 PLN</p>
-                            </div>
-                            <div class="purchase">
-                                <input type="submit" class="cart-checkout" value="confirm purchase" disabled="disabled">
                             </div>
                         </div>
                     </div>
