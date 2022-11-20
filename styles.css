@@ -557,6 +557,7 @@ footer {
     margin-top: 4rem;
     background-color: var(--cart-modal-color);
     margin-bottom: 3rem;
+    transition: all 0.3s ease;
 }
 
 .form {
