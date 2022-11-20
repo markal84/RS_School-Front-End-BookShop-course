@@ -14,6 +14,12 @@
 
 
 /* ===== global classes ===== */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 html {
     scroll-behavior: smooth;
   }
@@ -622,6 +628,20 @@ form input {
     transition: all .2s ease-in-out;
 }
 
+input:focus, textarea:focus {
+    outline: 1px solid var(--main-font-color)
+} 
+
+.error {
+    border: 0.5px solid var(--divider-color)!important;
+}
+
+.no-valid {
+    font-size: 0.6rem;
+    color: var(--divider-color);
+    transition: all 0.3s ease-in-out;
+}
+
 fieldset {
     border: 1px solid var(--book-border-color);
 }
@@ -642,6 +662,10 @@ fieldset {
 
 .purchase > input {
     text-transform: capitalize;
+}
+
+.required {
+    font-size: 0.8rem;
 }
 
 input[type=submit]:disabled {

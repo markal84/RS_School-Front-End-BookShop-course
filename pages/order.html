@@ -22,34 +22,34 @@
                         <form action="">
                             <div class="first-last-name flex">
                                 <div class="name col-rev">
-                                    <input type="text" id="name" minlength="4" pattern="^[a-zA-Z]*$" required>
-                                    <label for="name">First name</label>    
+                                    <input type="text" class="blur" id="name" minlength="4" pattern="^[a-zA-Z]*$" required>
+                                    <label for="name">First name*<span class="no-valid"></span></label>    
                                 </div>
                                 <div class="last col-rev">
-                                    <input type="text" id="last-name" minlength="5" pattern="^[a-zA-Z]*$" required>
-                                    <label for="last-name">Last name</label>
+                                    <input type="text" class="blur" id="last-name" minlength="5" pattern="^[a-zA-Z]*$" required>
+                                    <label for="last-name">Last name*<span class="no-valid"></span></label>
                                 </div>
                             </div>
                             <div class="delivery col-rev">
                                 <input type="date" id="delivery" required>
-                                <label for="delivery" aria-describedby="date-format">Delivery date</label>
+                                <label for="delivery" aria-describedby="date-format">Delivery date*</label>
                             </div>
                             <div class="street col-rev">
-                                <input type="text" id="street" minlength="5" required>
-                                <label for="street">Street</label>
+                                <input type="text" class="blur" id="street" minlength="5" pattern="^[a-zA-Z0-9]*$" required>
+                                <label for="street">Street*<span class="no-valid"></span></label>
                             </div>    
                             <div class="address flex">
                                 <div class="house col-rev">
-                                    <input type="number" id="house" size="12" required>
-                                    <label for="house">House number</label>
+                                    <input type="number" class="blur" id="house" size="12" pattern="^[1-9]\d*$" required>
+                                    <label for="house">House number*<span class="no-valid"></span></label>
                                 </div>
                                 <div class="flat col-rev">
-                                    <input type="number" id="flat" size="12" required>
-                                    <label for="flat">Flat number</label>    
+                                    <input type="number" class="blur" id="flat" size="12" pattern="^[1-9]\d*(?:[ -]?([1-9]\d*))?$" required>
+                                    <label for="flat">Flat number*<span class="no-valid"></span></label>    
                                 </div>
                             </div>
                             <fieldset>
-                                <legend>Payment type</legend>
+                                <legend>Payment type*</legend>
                                 <div>
                                     <input type="radio" id="cash" name="payment" required>
                                     <label for="cash">Cash</label>
@@ -60,7 +60,7 @@
                                 </div>
                             </fieldset>
                             <fieldset id="checboxes-box" class="checkboxes">
-                                <legend>Choose your 2 gifts</legend>
+                                <legend>Choose your gift</legend>
                                 <div>
                                     <input type="checkbox" id="pack" class="check" name="gift">
                                     <label for="pack">Pack as a gift</label>
@@ -78,6 +78,7 @@
                                     <label for="pen">Branded pen</label>
                                 </div>
                             </fieldset>
+                            <p class="required">* required</p>
                             <div class="purchase">
                                 <input type="submit" class="cart-checkout" value="confirm purchase">
                             </div>    
