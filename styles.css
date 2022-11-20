@@ -94,6 +94,10 @@ ul {
     visibility: hidden !important;
 }
 
+.remove {
+    display: none!important;
+}
+
 .col-rev {
     display: flex;
     flex-direction: column-reverse;
@@ -675,4 +679,25 @@ input[type=submit]:disabled {
     background-color: lightgray;
     cursor: not-allowed;
     transition: all ease .2s;
+}
+
+#confirmation {
+    visibility: hidden;
+    width: 60%;
+    max-width: 80%;
+    text-align: center;
+    margin: 5rem auto 3rem auto;
+    padding: 3rem;
+    background: var(--cart-modal-color);
+    box-shadow: 0 2px 15px -3px rgba(0,0,0,0.07),0 10px 20px -2px rgba(0,0,0,0.04);
+    border-color: rgba(0, 0, 0, .175);
+}
+
+#confirmation p {
+    margin: 0.8rem 0 0.8rem 0;
+}
+
+#confirmation p span {
+    font-size: 1.05rem;
+    font-weight: 500;
 }

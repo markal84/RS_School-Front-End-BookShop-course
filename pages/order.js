@@ -1,9 +1,16 @@
+const formContainer = document.querySelector(".form-container");
 const form = document.querySelector("form");
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 const inputs = document.querySelectorAll(".blur");
-const date = document.querySelector("#delivery");
 const submitBtn = document.querySelector(".cart-checkout");
-const confirm = document.querySelector("#form-data");
+const confirm = document.querySelector("#confirmation");
+
+const personName = document.querySelector("#name");
+const personSurname = document.querySelector("#last-name");
+const date = document.querySelector("#delivery");
+const street = document.querySelector("#street");
+const house = document.querySelector("#house");
+const flat = document.querySelector("#flat");
 
 // enable submit on complete form and validation
 submitBtn.disabled = true; //disable by default
@@ -87,8 +94,15 @@ for (el of checkboxes) {
 //display data from form
 
 const showData = (e) => {
+  formContainer.classList.add("remove");
+  confirm.classList.add("visible");
+  confirm.innerHTML = `
+  <p>Dear <span>${personName.value} ${personSurname.value}</span> </p>
+  <p>Your order will be delivered to <span>${street.value}</span> street, house nr <span>${house.value}</span>, flat nr <span>${flat.value}</span>
+  <p>on <span>${date.value}</span></p>
+  <p>Thank you for your purchase!</p>
+  `;
   e.preventDefault();
-  confirm.innerHTML = document.querySelector("#name").value;
 };
 
 submitBtn.addEventListener("click", showData);
