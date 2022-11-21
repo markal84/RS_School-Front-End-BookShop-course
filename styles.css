@@ -108,6 +108,10 @@ ul {
     flex-direction: column-reverse;
 }
 
+.on-drag {
+    padding: 1rem 3rem 2rem 3rem!important;
+}
+
 /* ===== Main page classes ===== */
 
 /* === Header === */
@@ -178,6 +182,7 @@ nav {
     font-size: 2rem;
     padding: 1rem 1.8rem;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
 .cart-quantity {
@@ -455,8 +460,17 @@ nav {
     line-height: 1.43rem;
 }
 
-.book-image {
+.product-img {
     order: 1;
+    transition: all 0.2s ease-in;
+}
+
+.product-img:hover {
+    transform: scale(1.05);
+}
+
+.product-img {
+    cursor: grab;
 }
 
 .button__add-to-cart {

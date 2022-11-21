@@ -77,6 +77,7 @@ export const closeCart = () => {
 export const onDragStart = (e) => {
   //console.log(document.querySelectorAll(".product-img"));
   const parent = e.target.closest("li");
+  const cartIcon = document.querySelector("#cart-icon-el");
   e.dataTransfer.setData("text/plain", e.target.id);
   e.dataTransfer.setData(
     "price",
@@ -94,6 +95,7 @@ export const onDragStart = (e) => {
 
   //console.log(parent.querySelector(".book-price").innerText);
   console.log("start dragging " + e.target.id);
+  cartIcon.classList.add("on-drag");
 };
 
 export const onDragOver = (e) => {
@@ -116,6 +118,7 @@ export const onDrop = (e) => {
       " title: " +
       title
   );*/
+  const cartIcon = document.querySelector("#cart-icon-el");
   const draggableElement = document.getElementById(id);
   const clone = draggableElement.cloneNode(true);
   const fragment = new DocumentFragment();
@@ -132,6 +135,7 @@ export const onDrop = (e) => {
       total += price;
     }
     document.querySelector(".total-price").innerHTML = total + ".00 PLN";
+    cartIcon.classList.remove("on-drag");
   };
 
   //remove item from cart
