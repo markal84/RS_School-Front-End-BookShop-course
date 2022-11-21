@@ -30,6 +30,16 @@ export const addClassOnScroll = () => {
 export const showCart = (e) => {
   e.target.style.transform = "translateX(0)";
   console.log("open by cart button");
+  const products = document.querySelector(".product-rows");
+  const product = document.querySelector(".product-row");
+  const checkout = document.querySelector(".cart-checkout");
+  //checkout.setAttribute("disabled");
+  //console.log(products.contains(product));
+  if (!products.contains(product)) {
+    checkout.classList.add("disabled");
+  } else {
+    checkout.classList.remove("disabled");
+  }
 };
 
 export const showCartOverlay = () => {
@@ -143,6 +153,15 @@ export const onDrop = (e) => {
         "No items in cart yet";
     }
     updateCartPrice();
+    const product = document.querySelector(".product-row");
+    const checkout = document.querySelector(".cart-checkout");
+    //checkout.setAttribute("disabled");
+    //console.log(products.contains(product));
+    if (!productsRow.contains(product)) {
+      checkout.classList.add("disabled");
+    } else {
+      checkout.classList.remove("disabled");
+    }
     console.log("removed from cart");
   };
 

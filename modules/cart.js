@@ -140,6 +140,19 @@ export const cart = () => {
     console.log("added to cart");
   };
 
+  const enableLink = () => {
+    const products = document.querySelector(".product-rows");
+    const product = document.querySelector(".product-row");
+    const checkout = document.querySelector(".cart-checkout");
+    //checkout.setAttribute("disabled");
+    //console.log(products.contains(product));
+    if (!products.contains(product)) {
+      checkout.classList.add("disabled");
+    } else {
+      checkout.classList.remove("disabled");
+    }
+  };
+
   //update total price
 
   const updateCartPrice = () => {
@@ -185,6 +198,7 @@ export const cart = () => {
         "No items in cart yet";
     }
     updateCartPrice();
+    enableLink();
     console.log("removed from cart");
   };
 

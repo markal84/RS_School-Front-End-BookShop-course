@@ -47,6 +47,7 @@ a {
     color: var(--main-font-color);
 }
 
+
 a:visited {
     color: var(--book-author-color);
 }
@@ -84,6 +85,10 @@ ul {
 
 .absolute {
     position: absolute;
+}
+
+.disabled {
+    pointer-events: none;
 }
 
 .visible {
