@@ -8,6 +8,7 @@ import {
   showCartOverlay,
   onDragStart,
   onDragOver,
+  onDragEnd,
   onDrop,
 } from "./helpers.js";
 
@@ -233,6 +234,7 @@ export const cart = () => {
   const productImgs = document.querySelectorAll(".product-img");
   productImgs.forEach((img) => {
     img.addEventListener("dragstart", onDragStart);
+    img.addEventListener("dragend", onDragEnd);
   });
 
   cartIcon.addEventListener("dragover", onDragOver);

@@ -102,6 +102,11 @@ export const onDragOver = (e) => {
   e.preventDefault();
 };
 
+export const onDragEnd = () => {
+  const cartIcon = document.querySelector("#cart-icon-el");
+  cartIcon.classList.remove("on-drag");
+};
+
 export const onDrop = (e) => {
   const id = e.dataTransfer.getData("text");
   const price = e.dataTransfer.getData("price");
